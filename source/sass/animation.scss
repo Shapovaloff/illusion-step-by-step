@@ -249,6 +249,113 @@
   }
 }
 
+
+.screen {
+  transition: opacity 0.7s ease;
+}
+
+
+.screen__scroller {
+  transition: all 0.3s ease;
+}
+
+
+.screen--hidden,
+.screen--deactivated {
+  .whiff {
+    transition: opacity 0.5s ease;
+  }
+}
+
+.tickets-block__control,
+.slider__control {
+  transition: color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+
+  &::before {
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  svg {
+    transition: transform 0.2s ease;
+  }
+}
+
+.screen--mc.active .slider__control {
+  transition: color 0.2s ease, transform 0.5s ease 0.55s, opacity 0.5s ease 0.55s;
+}
+
+.screen--tickets.active .tickets-block--form-opened .tickets-block__control {
+  transition: color 0.2s ease, transform 0.5s ease 0.15s, opacity 0.5s ease 0.15s;
+}
+
+.tickets-block--form-opened {
+  .tickets-block__form {
+    transition: opacity 0.8s ease;
+  }
+}
+
+
+.slider__pagination {
+  transition: opacity 0.3s ease, transform 0s ease 0.3s;
+
+  .screen--mc.active & {
+    transition: opacity 0.5s ease 0.25s, transform 0.5s ease 0.25s;
+  }
+}
+
+
+.swiper-slide {
+  .slogan__word span {
+    transition: none;
+  }
+}
+
+
+.swiper-wrapper {
+  transition-timing-function: cubic-bezier(0.37, 0, 0.13, 1);
+
+  &.slider__el {
+    // Функция, максимально замедляющая начало движения списков на слайдах, пока они не скроются через прозрачность
+    transition-timing-function: cubic-bezier(1, 0, 1, 0.62);
+  }
+
+  &.active {
+    .swiper-slide {
+      transition: opacity 0.15s ease;
+    }
+
+    .swiper-slide:not(.swiper-slide-active) {
+      opacity: 0;
+    }
+  }
+}
+
+
+.swiper-slide {
+  .slogan__word span {
+    transition: none;
+  }
+}
+
+
+.tickets-block__button {
+  &--next {
+    transition: opacity 0.3s ease, transform 0.55s ease;
+
+    &:hover {
+      transition: transform 0.25s cubic-bezier(0.23, 0, 0.7, 1);
+    }
+  }
+}
+
+
+.tickets-form__counter {
+  &::before {
+    transition: transform 0.2s ease;
+  }
+}
+
+
 .btn {
   &::before,
   &::after {
@@ -272,4 +379,8 @@
     transition-timing-function: ease;
     transition-property: border-color, transform;
   }
+}
+
+.whiff {
+  transition: opacity 0.5s ease;
 }
