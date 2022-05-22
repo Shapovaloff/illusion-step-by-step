@@ -208,3 +208,68 @@
 .modal__block-event {
   transition: transform 0.85s cubic-bezier(0.17, 0, 0.13, 1);
 }
+
+
+.page-header {
+  transition: color 0.3s ease;
+}
+
+
+.page-header__period {
+  transition: color 0.3s ease;
+
+  @media (max-width: $tablet) and (orientation: portrait) {
+    transition-property: color, opacity;
+  }
+
+  @media (max-width: $tablet - 1) and (orientation: landscape) {
+    transition-property: color, opacity;
+  }
+}
+
+
+.page-header__cart .btn {
+  transition: color 0.3s ease;
+}
+
+
+.page-header__logo {
+  transition: opacity 0.5s ease;
+}
+
+
+.page-header__cart {
+  &-number {
+    transition: opacity 0.3s ease;
+  }
+
+  .eye_apple,
+  .upper_eyelid {
+    transition: opacity 0.01s ease 0.3s;
+  }
+}
+
+.btn {
+  &::before,
+  &::after {
+    transition-duration: 0.2s;
+    transition-property: top, bottom, left, right, border-color;
+  }
+}
+
+
+.social-btn {
+  transition: color 0.55s ease;
+}
+
+.social-btn:hover {
+  transition-duration: 0.3s;
+}
+
+.social-btn {
+  &::after {
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+    transition-property: border-color, transform;
+  }
+}
