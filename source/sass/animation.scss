@@ -1,0 +1,45 @@
+.features-list {
+  &__item-feature {
+    transition: opacity 0.2s ease;
+  }
+
+  &__item-value {
+    transition: opacity 0.2s ease;
+  }
+
+  &.active {
+    .features-list__item {
+      &:nth-child(2) {
+        .features-list__item-feature,
+        .features-list__item-value {
+          transition-delay: 0.2s;
+        }
+      }
+      &:nth-child(3) {
+        .features-list__item-feature,
+        .features-list__item-value {
+          transition-delay: 0.3s;
+        }
+      }
+      &:nth-child(4) {
+        .features-list__item-feature,
+        .features-list__item-value {
+          transition-delay: 0.4s;
+        }
+      }
+      &:nth-child(5) {
+        .features-list__item-feature,
+        .features-list__item-value {
+          transition-delay: 0.55s;
+        }
+      }
+    }
+  }
+}
+
+
+.intro__title-line {
+  &::before {
+    transition: width 0.5s ease;
+  }
+}

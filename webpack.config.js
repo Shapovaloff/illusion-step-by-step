@@ -20,7 +20,7 @@ module.exports = {
   mode: 'development',
   devtool: `source-map`,
   devServer: {
-    host: '0.0.0.0',
+    host: 'localhost',
     contentBase: path.join(__dirname, 'build'),
     port: 7777
   },
