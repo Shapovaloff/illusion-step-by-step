@@ -43,3 +43,92 @@
     transition: width 0.5s ease;
   }
 }
+
+
+.main-menu {
+  transition: color 0.2s ease;
+}
+
+
+.main-menu--opened {
+  transition: opacity 0.15s ease;
+
+  &::before {
+    transition: transform 0.45s ease 0.15s;
+  }
+}
+
+
+.main-menu--opened-out {
+  .main-menu__link-text {
+    .slogan__word span {
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  .main-menu__link-icon {
+    transition: opacity 0.3s ease;
+  }
+}
+
+
+.main-menu--opened.main-menu--active {
+  &::before {
+    transition: transform 0.35s ease;
+  }
+
+  .main-menu__link-icon {
+    transition: opacity 0.3s ease 0.25s;
+  }
+}
+
+
+.main-menu__link {
+  transition: color 0.3s ease;
+}
+
+
+.main-menu__link {
+  &::before {
+    transition: opacity 0.2s ease;
+  }
+
+  svg {
+    transition: opacity 0.2s ease;
+  }
+}
+
+
+.main-menu__link-text {
+  transition: opacity 0.2s ease;
+}
+
+
+.main-menu__logo {
+  transition: opacity 0.3s ease;
+}
+
+
+.main-menu__social {
+  @media (max-width: $tablet) and (orientation: portrait) {
+    transition: opacity 0.2s ease;
+  }
+
+  @media (max-width: $tablet - 1) and (orientation: landscape) {
+    transition: opacity 0.2s ease;
+  }
+}
+
+
+.main-menu__toggler-line {
+  &,
+  &::before,
+  &::after {
+    transition: transform 0.3s ease;
+  }
+}
+
+
+.main-menu.main-menu--opened .main-menu__link path {
+  transition: none;
+}
