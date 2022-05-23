@@ -250,6 +250,106 @@
 }
 
 
+.map__decor {
+  .bird {
+    animation: fly-part-x-1 38s ease-in-out infinite both;
+
+    &-wrap {
+      animation: fly-part-y-1 12s ease-in-out infinite both;
+    }
+
+    &,
+    &-wrap {
+      animation-play-state: paused;
+
+      .screen.active & {
+        animation-play-state: running;
+      }
+    }
+
+    &.bird-1-right,
+    &.bird-4-left,
+    &.bird-3 {
+      animation-name: fly-part-x-2;
+    }
+
+    &.bird-1-right,
+    &.bird-4-right,
+    &.bird-2 {
+      .bird-wrap {
+        animation-name: fly-part-y-2;
+      }
+    }
+
+    &.bird-1-left {
+      &,
+      .bird-wrap {
+        animation-delay: -3s;
+      }
+    }
+
+    &.bird-1-right {
+      animation-duration: 34s;
+      animation-delay: -11s;
+
+      .bird-wrap {
+        animation-duration: 30s;
+        animation-delay: -10s;
+      }
+    }
+
+    &.bird-2 {
+      animation-duration: 31s;
+
+      .bird-wrap {
+        animation-duration: 16s;
+      }
+
+      &,
+      .bird-wrap {
+        animation-delay: -8s;
+      }
+    }
+
+    &.bird-3 {
+        animation-duration: 27s;
+        animation-delay: -3s;
+
+      .bird-wrap {
+        animation-duration: 39s;
+        animation-delay: -27s;
+      }
+    }
+
+    &.bird-4-left {
+      animation-duration: 67s;
+
+      .bird-wrap {
+        animation-duration: 26s;
+      }
+
+      &,
+      .bird-wrap {
+        animation-delay: -21s;
+      }
+    }
+
+    &.bird-4-right {
+      animation-duration: 46s;
+
+      .bird-wrap {
+        animation-duration: 9s;
+      }
+
+      &,
+      .bird-wrap {
+        animation-delay: -11s;
+      }
+    }
+  }
+}
+
+
 .screen {
   transition: opacity 0.7s ease;
 }
