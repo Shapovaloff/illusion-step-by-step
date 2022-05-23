@@ -1,3 +1,28 @@
+@keyframes slider__show-paragraph {
+  0% {
+    transform: translateX(6em);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes slider__show-line {
+  0% {
+    transform: translateX(1em);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 @keyframes fly-part-y-1 {
     0% {
         transform: translate(-5%, 40%);

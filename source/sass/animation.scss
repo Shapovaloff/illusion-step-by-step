@@ -419,13 +419,83 @@
     transition-timing-function: cubic-bezier(1, 0, 1, 0.62);
   }
 
+  .slider__list span {
+    animation-duration: 0.75s;
+    animation-delay: 0.35s;
+    animation-timing-function: cubic-bezier(0.37, 0, 0.13, 1);
+    animation-fill-mode: both;
+    animation-play-state: paused;
+  }
+
   &.active {
     .swiper-slide {
       transition: opacity 0.15s ease;
     }
 
+    .swiper-slide-active {
+      .whiff {
+        opacity: 1;
+        animation-name: show-whiff;
+        animation-duration: 1.5s;
+        animation-delay: 0.15s;
+        animation-iteration-count: 1;
+        animation-timing-function: cubic-bezier(0, 0, 0, 1);
+        animation-fill-mode: forwards;
+      }
+    }
+
     .swiper-slide:not(.swiper-slide-active) {
       opacity: 0;
+    }
+
+    @for $i from 1 through 5 {
+      .slider__list li:nth-child(#{$i}) .whiff {
+        animation-delay: (0.15s + 0.2s * $i);
+      }
+    }
+
+    .slider__list li:nth-child(n+5) .whiff {
+      animation-delay: (0.15s + 0.2s * 5);
+    }
+
+    .swiper-slide-active .slider__list span {
+      animation-play-state: running;
+      animation-name: slider__show-paragraph;
+    }
+
+    @for $i from 1 through 5 {
+      .slider__list li:nth-child(#{$i}) span {
+        animation-delay: (0.35s + 0.2s * $i);
+      }
+    }
+
+    .slider__list li:nth-child(n+5) span {
+      animation-delay: (0.35s + 0.2s * 5);
+    }
+
+    @media (max-width: $tablet) and (orientation: portrait) {
+      .slider__list li::before {
+        animation-duration: 0.75s;
+        animation-delay: 0.35s;
+        animation-timing-function: cubic-bezier(0.37, 0, 0.13, 1);
+        animation-fill-mode: both;
+        animation-play-state: paused;
+      }
+
+      .swiper-slide-active .slider__list li::before {
+        animation-play-state: running;
+        animation-name: slider__show-line;
+      }
+
+      @for $i from 1 through 5 {
+        .slider__list li:nth-child(#{$i})::before {
+          animation-delay: (0.35s + 0.2s * $i);
+        }
+      }
+
+      .slider__list li:nth-child(n+5)::before {
+        animation-delay: (0.35s + 0.2s * 5);
+      }
     }
   }
 }
