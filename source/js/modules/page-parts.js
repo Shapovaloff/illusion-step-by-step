@@ -1,7 +1,7 @@
 import * as scrollSpy from 'simple-scrollspy/dist/simple-scrollspy.min';
+import AccentTypographyBuild from './accent-typography-builder';
 
 import Swiper from 'swiper';
-
 
 class Menu {
   constructor() {
@@ -20,6 +20,17 @@ class Menu {
       offset: 100
     });
 
+    // SPLIT TEXT
+    const prepareLinksText = (root, selector) => {
+      return [...root.querySelectorAll(selector)].map((el) => {
+        const accentObject = new AccentTypographyBuild(el, 300, null, 'transform');
+        accentObject.clearStyle();
+        return accentObject;
+      });
+    };
+
+    this.accentLinkTextObjects = prepareLinksText(this.menu, '.main-menu__link-text');
+
     this.initEventListeners();
   }
 
@@ -37,6 +48,9 @@ class Menu {
           this.menu.classList.remove(`main-menu--active`);
           this.menu.classList.remove(`main-menu--opened-in`);
           this.menu.classList.add(`main-menu--opened-out`);
+          this.accentLinkTextObjects.forEach((accentObject) => {
+            accentObject.clearStyle();
+          });
           setTimeout(() => {
             this.menu.classList.remove(`main-menu--opened`);
             this.menu.classList.remove(`main-menu--opened-out`);
@@ -46,7 +60,9 @@ class Menu {
           this.menu.classList.add(`main-menu--opened-in`);
           this.menu.classList.remove(`main-menu--opened-out`);
           this.header.classList.add(`page-header--menu-opened`);
-
+          this.accentLinkTextObjects.forEach((accentObject) => {
+            accentObject.addStyle();
+          });
           setTimeout(() => {
             this.menu.classList.add(`main-menu--active`);
           }, 100);
