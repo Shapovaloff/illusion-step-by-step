@@ -55,6 +55,7 @@ export default class PageSwitchHandler {
         numbers.animate.bind(numbers)
       ],
       show: [
+        app.poster.startAnimation.bind(app.poster, app),
         showTitle.runAnimation.bind(showTitle),
         () => {
           setTimeout(showText.runAnimation.bind(showText), 200);
