@@ -1,4 +1,6 @@
 import AccentTypographyBuild from './accent-typography-builder';
+import AnimatedNumbers from './animated-numbers';
+
 
 export default class PageSwitchHandler {
   constructor(app) {
@@ -12,6 +14,13 @@ export default class PageSwitchHandler {
     const sliderTitle = new AccentTypographyBuild(`.slider__title`, 500, `accent-typography--active`, `transform`);
     const mapTitle = new AccentTypographyBuild(`.map__title`, 500, `accent-typography--active`, `transform`);
     const ticketsBlockTitle = new AccentTypographyBuild(`.tickets-block__title`, 500, `accent-typography--active`, `transform`);
+
+    const numbers = new AnimatedNumbers({
+      elements: `#js-features-list .features-list__item-value`,
+      duration: 800,
+      durationAttenuation: 150,
+      delay: 200
+    });
 
 
     this.colorScheme = {
@@ -42,6 +51,9 @@ export default class PageSwitchHandler {
         animationTopScreenTextLine2.runAnimation.bind(animationTopScreenTextLine2),
         animationTopScreenTextLine3.runAnimation.bind(animationTopScreenTextLine3),
       ],
+      numbers: [
+        numbers.animate.bind(numbers)
+      ],
       show: [
         showTitle.runAnimation.bind(showTitle),
         () => {
@@ -68,6 +80,9 @@ export default class PageSwitchHandler {
         animationTopScreenTextLine1.destroyAnimation.bind(animationTopScreenTextLine1),
         animationTopScreenTextLine2.destroyAnimation.bind(animationTopScreenTextLine2),
         animationTopScreenTextLine3.destroyAnimation.bind(animationTopScreenTextLine3),
+      ],
+      numbers: [
+        numbers.stopAllAnimations.bind(numbers)
       ],
       show: [
         showTitle.destroyAnimation.bind(showTitle),
