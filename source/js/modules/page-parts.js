@@ -3,6 +3,7 @@ import AccentTypographyBuild from './accent-typography-builder';
 
 import Swiper from 'swiper';
 
+
 class Menu {
   constructor() {
     this.header      = document.querySelector(`.js-header`);
@@ -60,10 +61,11 @@ class Menu {
           this.menu.classList.add(`main-menu--opened-in`);
           this.menu.classList.remove(`main-menu--opened-out`);
           this.header.classList.add(`page-header--menu-opened`);
-          this.accentLinkTextObjects.forEach((accentObject) => {
-            accentObject.addStyle();
-          });
+
           setTimeout(() => {
+            this.accentLinkTextObjects.forEach((accentObject) => {
+              accentObject.addStyle();
+            });
             this.menu.classList.add(`main-menu--active`);
           }, 100);
         }

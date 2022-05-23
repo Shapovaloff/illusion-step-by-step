@@ -23,6 +23,47 @@
   }
 }
 
+
+@keyframes tickets-form__show-ticket {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  96% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+@keyframes tickets-form__move-ticket-x {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(var(--cartDeltaX));
+  }
+}
+
+
+@keyframes tickets-form__move-ticket-y {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(var(--cartDeltaY));
+  }
+}
+
 @keyframes fly-part-y-1 {
     0% {
         transform: translate(-5%, 40%);
@@ -118,3 +159,4 @@
         transform: translate(155%, -5%);
     }
 }
+

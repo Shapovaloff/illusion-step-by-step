@@ -508,6 +508,31 @@
 }
 
 
+.tickets-form__ticket {
+  &.animate {
+    animation-name: tickets-form__show-ticket;
+    animation-duration: 0.7s;
+    animation-timing-function: ease;
+
+    .tickets-form__ticket {
+      &_x {
+        animation-name: tickets-form__move-ticket-x;
+        animation-duration: 0.7s;
+        animation-timing-function: cubic-bezier(.23,0,.33,1);
+        animation-fill-mode: forwards;
+      }
+
+      &_y {
+        animation-name: tickets-form__move-ticket-y;
+        animation-duration: 0.7s;
+        animation-timing-function: cubic-bezier(.59,0,.73,1);
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+}
+
+
 .tickets-block__button {
   &--next {
     transition: opacity 0.3s ease, transform 0.55s ease;
